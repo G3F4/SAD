@@ -5,11 +5,11 @@ project(FSDL)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    src/main.cpp
     src/entities/base/abstract/Object.hpp
     src/entities/base/BaseObject.cpp
     src/entities/base/BaseObject.hpp
     src/tests/BaseObjectTest.cpp
+    src/main.cpp
     )
 
 add_executable(FSDL ${SOURCE_FILES})

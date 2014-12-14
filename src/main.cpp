@@ -1,10 +1,8 @@
-#include "tests/BaseObjectTest.cpp"
-#include "tests/WindowTest.cpp"
+#include "tests/BaseObjectTest.hpp"
 
 int main()
 {
-//    BaseObjectTest();
-    test_window();
-
+    BaseObjectTestCase* test1 = new BaseObjectTestCase();
+    test1->BaseObjectTest();
     return 0;
 }

@@ -8,8 +8,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SOURCE_FILES
     src/entities/base/BaseObject.cpp
     src/entities/Window.cpp
+    src/singletons/Application.cpp
     src/tests/BaseObjectTest.cpp
     src/tests/WindowTest.cpp
+    src/tests/ApplicationTest.cpp
     src/main.cpp
     )
 

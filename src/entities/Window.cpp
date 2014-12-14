@@ -8,8 +8,8 @@ Window::Window(std::string ID, int x, int y, int width, int height, bool state, 
         BaseObject(ID, x, y, width, height, state)
 {
     m_window = SDL_CreateWindow(m_ID.c_str(), m_box.x, m_box.y, m_box.w, m_box.h, window_flags);
-    std::cout << SDL_GetWindowFlags(m_window) << std::endl;
     if ( m_window != NULL) {
+        visible = window_flags != SDL_WINDOW_HIDDEN;
         std::cout << "SDL_Window created!" << std::endl;
         m_renderer = SDL_CreateRenderer(m_window, -1, renderer_flags);
         if (m_renderer != NULL) {
@@ -65,10 +65,12 @@ void Window::maximalize() {
 }
 
 void Window::hide() {
+    visible = false;
     SDL_HideWindow(m_window);
 }
 
 void Window::show() {
+    visible = true;
     SDL_ShowWindow(m_window);
 }
 

@@ -32,10 +32,12 @@ public:
     void maximalize();
     void hide();
     void show();
+    bool is_visible() { return visible; }
     ~Window();
 protected:
 
 private:
+    bool visible = false;
     SDL_Window* m_window = NULL;
     SDL_Renderer* m_renderer = NULL;
     SDL_Color m_color = {255,255,255,255};

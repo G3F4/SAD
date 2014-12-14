@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 
 #include "../utils/test-tools.hpp"
 #include "BaseObjectTest.hpp"
@@ -6,12 +7,11 @@
 
 
 void BaseObjectTestCase::test_obj_details(BaseObject* test_obj) {
-    std::cout << "#";
     std::cout.width(20);
-    std::cout << "Testing object #";
+    std::cout << "BaseObject details \n#";
     std::cout.width(15);
-    std::cout << "Test result: ";
-    std::cout << std::endl << "#";
+    std::cout << "Type: ";
+    std::cout << typeid(test_obj).name() << std::endl << "#";
     std::cout.width(15);
     std::cout << "ID: ";
     std::cout << test_obj->get_ID() << std::endl << "#";
@@ -33,7 +33,7 @@ void BaseObjectTestCase::test_obj_details(BaseObject* test_obj) {
     std::cout << "#############################" << std::endl;
 }
 
-void BaseObjectTestCase::baseObject_assertion_test(BaseObject* test_obj, std::string ID, int x, int y, int width, int height, bool state)
+void BaseObjectTestCase::BaseObject_assertion_test(BaseObject* test_obj, std::string ID, int x, int y, int width, int height, bool state)
 {
     static int test_index = 1;
     std::cout << "### ASSERTION NR " << test_index << std::endl;
@@ -55,7 +55,7 @@ bool BaseObjectTestCase::BaseObjectTest(void) {
     ASSERT(test_obj1 != nullptr, "Undefined ocject!");
     std::cout << "Contructor WORKS!" << std::endl;
     test_obj_details(test_obj1);
-    baseObject_assertion_test(test_obj1, "TestObject1", 100, 100, 100, 100, true);
+    BaseObject_assertion_test(test_obj1, "TestObject1", 100, 100, 100, 100, true);
     std::cout << "changing object properties" << std::endl;
     test_obj1->set_x_position(200);
     test_obj1->set_y_position(200);
@@ -64,7 +64,7 @@ bool BaseObjectTestCase::BaseObjectTest(void) {
     test_obj1->disable();
     std::cout << "Testing object setters" << std::endl;
     test_obj_details(test_obj1);
-    baseObject_assertion_test(test_obj1, "TestObject1", 200, 200, 200, 200, false);
+    BaseObject_assertion_test(test_obj1, "TestObject1", 200, 200, 200, 200, false);
     SDL_Point* p1 = new SDL_Point();
     p1->x = 100;
     p1->y = 100;
@@ -73,11 +73,11 @@ bool BaseObjectTestCase::BaseObjectTest(void) {
     p2->y = 200;
     BaseObject* test_obj2 = new BaseObject("TestObject2", p1, p2, false);
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 100, 100, false);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 100, 100, false);
     std::cout << "changing test object nr 2" << std::endl;
     test_obj2->set_position(200, 200, 200, 200);
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 200, 200, 200, 200, false);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 200, 200, 200, 200, false);
     p1->x = 100;
     p1->y = 100;
     p2->x = 200;
@@ -85,19 +85,19 @@ bool BaseObjectTestCase::BaseObjectTest(void) {
     test_obj2->set_position(p1, p2);
     test_obj2->enable();
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 100, 100, true);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 100, 100, true);
     p2 = test_obj2->get_position();
     test_obj2->set_position(p1, p2);
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 0, 0, true);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 0, 0, true);
     p2->x = 200;
     p2->y = 200;
     test_obj2->set_position(p2);
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 200, 200, 0, 0, true);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 200, 200, 0, 0, true);
     test_obj2->set_position(100, 100);
     test_obj_details(test_obj2);
-    baseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 0, 0, true);
+    BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 0, 0, true);
     std::cout << "Base Object Test COMPLETED!!@@@###" << std::endl;
     return true;
 }

@@ -6,7 +6,7 @@
 class BaseObjectTestCase {
 public:
     static void test_obj_details(BaseObject* test_obj);
-    void baseObject_assertion_test(BaseObject* test_obj,
+    void BaseObject_assertion_test(BaseObject* test_obj,
             std::string ID = "TestObject",
             int x = 100,
             int y = 100,

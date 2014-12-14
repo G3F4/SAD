@@ -4,11 +4,12 @@ project(FSDL)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+# add here all *.cpp files
 set(SOURCE_FILES
-    src/entities/base/abstract/Object.hpp
     src/entities/base/BaseObject.cpp
-    src/entities/base/BaseObject.hpp
+    src/entities/Window.cpp
     src/tests/BaseObjectTest.cpp
+    src/tests/WindowTest.cpp
     src/main.cpp
     )
 

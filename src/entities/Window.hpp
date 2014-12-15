@@ -33,6 +33,14 @@ public:
     void hide();
     void show();
     bool is_visible() { return visible; }
+    virtual void set_width(int width);
+    virtual void set_height(int height);
+    virtual void set_x_position(int x);
+    virtual void set_y_position(int y);
+    virtual void set_position(SDL_Point* p1);
+    virtual void set_size(SDL_Point* p1, SDL_Point* p2);
+    virtual void set_position(int x, int y);
+    virtual void set_position(int x, int y, int width, int height);
     ~Window();
 protected:
 

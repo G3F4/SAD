@@ -22,12 +22,12 @@ public:
             Uint32 window_flags = SDL_WINDOW_SHOWN,
             Uint32 renderer_flags = SDL_RENDERER_ACCELERATED );
     Window* get_window(std::string ID);
-    std::map<std::string, Window*> get_windows(); // useful for iterating through all windows manager by application
-    void hide();                            // hide all windows
-    void show();                            // show all windows
-    void start();                           // starts application
-    void stop();                            // stops application
-    void pause(Uint32 ms);                      // delay application for given amount of miliseconds
+    std::map<std::string, Window*> get_windows();   // useful for iterating through all windows manager by application
+    void hide();                                    // hide all windows
+    void show();                                    // show all windows
+    void start();                                   // starts application
+    void stop();                                    // stops application
+    void pause(Uint32 ms);                          // delay application for given amount of miliseconds
     bool is_running() { return m_running; }
     virtual ~Application();
 protected:

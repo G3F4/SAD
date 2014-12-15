@@ -7,12 +7,11 @@
 using namespace std;
 
 void WindowTestCase::main_test(void) {
-    Window* win = new Window("Test Window", 100, 100 ,640, 480, true, SDL_WINDOW_HIDDEN);
+    Window* win = new Window("Test Window", 100, 100 ,640, 480, true, SDL_WINDOW_SHOWN);
     win->clear();
     win->present();
     details(win);
     assertion_test(win);
-    SDL_Delay(1000);
 }
 
 WindowTestCase::WindowTestCase() {

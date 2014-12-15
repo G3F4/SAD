@@ -14,7 +14,7 @@ m_ID(ID), m_state(state)
 
 BaseObject::BaseObject(std::string ID, SDL_Point *p1, SDL_Point *p2, bool state) {
     m_ID = ID;
-    BaseObject::set_position(p1, p2);
+    BaseObject::set_size(p1, p2);
     m_state = state;
 }
 
@@ -64,7 +64,7 @@ void BaseObject::destroy(void) {
 //    BaseObject::~BaseObject(); #TODO implement working destroy metohod
 }
 
-void BaseObject::set_position(SDL_Point *p1, SDL_Point *p2) {
+void BaseObject::set_size(SDL_Point *p1, SDL_Point *p2) {
     m_box.x = p1->x;
     m_box.y = p1->y;
     m_box.w = labs(p2->x - p1->x);

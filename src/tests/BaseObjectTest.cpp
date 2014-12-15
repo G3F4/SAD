@@ -82,12 +82,12 @@ bool BaseObjectTestCase::BaseObjectTest(void) {
     p1->y = 100;
     p2->x = 200;
     p2->y = 200;
-    test_obj2->set_position(p1, p2);
+    test_obj2->set_size(p1, p2);
     test_obj2->enable();
     test_obj_details(test_obj2);
     BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 100, 100, true);
     p2 = test_obj2->get_position();
-    test_obj2->set_position(p1, p2);
+    test_obj2->set_size(p1, p2);
     test_obj_details(test_obj2);
     BaseObject_assertion_test(test_obj2, "TestObject2", 100, 100, 0, 0, true);
     p2->x = 200;

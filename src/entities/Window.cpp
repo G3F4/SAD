@@ -78,3 +78,43 @@ Window::~Window() {
     SDL_DestroyRenderer(m_renderer);
     SDL_DestroyWindow(m_window);
 }
+
+void Window::set_x_position(int x) {
+    BaseObject::set_x_position(x);
+    SDL_SetWindowPosition(m_window, m_box.x, m_box.y);
+}
+
+void Window::set_y_position(int y) {
+    BaseObject::set_y_position(y);
+    SDL_SetWindowPosition(m_window, m_box.x, m_box.y);
+}
+
+void Window::set_position(SDL_Point *p1) {
+    BaseObject::set_position(p1);
+    SDL_SetWindowPosition(m_window, m_box.x, m_box.y);
+}
+
+void Window::set_size(SDL_Point *p1, SDL_Point *p2) {
+    BaseObject::set_size(p1, p2);
+    SDL_SetWindowSize(m_window, m_box.w, m_box.h);
+}
+
+void Window::set_position(int x, int y) {
+    BaseObject::set_position(x, y);
+    SDL_SetWindowPosition(m_window, m_box.x, m_box.y);
+}
+
+void Window::set_position(int x, int y, int width, int height) {
+    BaseObject::set_position(x, y, width, height);
+    SDL_SetWindowPosition(m_window, m_box.x, m_box.y);
+}
+
+void Window::set_width(int width) {
+    BaseObject::set_width(width);
+    SDL_SetWindowSize(m_window, m_box.w, m_box.h);
+}
+
+void Window::set_height(int height) {
+    BaseObject::set_height(height);
+    SDL_SetWindowSize(m_window, m_box.w, m_box.h);
+}

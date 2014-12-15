@@ -26,7 +26,7 @@ public:
     virtual void set_height(int height) { m_box.h = height; }
     virtual SDL_Point* get_position();
     virtual void set_position(SDL_Point* p1);
-    virtual void set_position(SDL_Point* p1, SDL_Point* p2);
+    virtual void set_size(SDL_Point* p1, SDL_Point* p2);
     virtual void set_position(int x, int y);
     virtual void set_position(int x, int y, int width, int height);
     virtual int get_x_position(void) { return m_box.x; }

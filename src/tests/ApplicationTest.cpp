@@ -4,7 +4,7 @@
 
 
 void AppicationTestCase::main_test() {
-    Application app = Singleton<Application>::Instance();
+    static Application app = Singleton<Application>::Instance();
     app.create_window("TestWindow", 100, 100, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
     app.create_window("TestWindow2", 800, 400, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
     details(app);

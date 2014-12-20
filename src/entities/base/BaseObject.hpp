@@ -20,6 +20,7 @@ public:
             bool state);
     BaseObject(std::string ID, SDL_Point* p1, SDL_Point* p2, bool state);
     const std::string get_ID(void) { return m_ID; } // ID should be constant
+    virtual SDL_Rect* get_box() { return &m_box; }
     virtual int get_width(void) { return m_box.w; }
     virtual int get_height(void) { return m_box.h; }
     virtual void set_width(int width) { m_box.w = width; }

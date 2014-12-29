@@ -1,4 +1,7 @@
 /* Test tools set */
+#ifndef TEST_TOOLS_HPP
+#define TEST_TOOLS_HPP
+
 
 #ifndef NDEBUG
 #define ASSERT(condition, message) \
@@ -12,4 +15,6 @@
     } while (false)
 #else
 #define ASSERT(condition, message) do { } while (false)
+#endif
+
 #endif

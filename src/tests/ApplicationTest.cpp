@@ -3,37 +3,37 @@
 #include "../utils/test-tools.hpp"
 
 
+
 void AppicationTestCase::main_test() {
-    static Application app = Singleton<Application>::Instance();
-    app.create_window("TestWindow", 100, 100, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
-    app.create_window("TestWindow2", 800, 400, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
-    details(app);
-    assertion_test(app);
-
+    Application& APP = Application::Instance();
+    APP.create_window("TestWindow", 100, 100, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
+    APP.create_window("TestWindow2", 800, 400, 100, 100, true, SDL_WINDOW_HIDDEN, SDL_RENDERER_ACCELERATED);
+    details(APP);
+    assertion_test(APP);
 }
 
-void AppicationTestCase::details(Application app) {
+void AppicationTestCase::details(Application& APP) {
     std::cout << "Application Test Details" << std::endl;
-    std::cout << "Windows count: " << app.get_windows().size() << std::endl;
+    std::cout << "Windows count: " << APP.get_windows().size() << std::endl;
 }
 
-void AppicationTestCase::assertion_test(Application app) {
-    ASSERT(!app.is_running(), "Application m_running flag initilized with wrong flag");
-    app.start();
-    ASSERT(app.is_running(), "Application m_running flag wrong value after start");
-    app.stop();
-    ASSERT(!app.is_running(), "Application m_running flag wrong value after stop");
-    app.show();
+void AppicationTestCase::assertion_test(Application& APP) {
+    ASSERT(!APP.is_running(), "Application m_running flag initilized with wrong flag");
+    APP.start();
+    ASSERT(APP.is_running(), "Application m_running flag wrong value after start");
+    APP.stop();
+    ASSERT(!APP.is_running(), "Application m_running flag wrong value after stop");
+    APP.show();
     SDL_Delay(1000);
-    for (auto win: app.get_windows()) {
+    for (auto win: APP.get_windows()) {
         ASSERT(win.second->is_visible(), "Checking windows visibility");
     }
-    app.hide();
-    for (auto win: app.get_windows()) {
+    APP.hide();
+    for (auto win: APP.get_windows()) {
         ASSERT(!win.second->is_visible(), "Checking windows visibility");
     }
-    ASSERT(app.get_window("TestWindow") != nullptr, "Failed getting Window instance.");
-    app.show();
+    ASSERT(APP.get_window("TestWindow") != nullptr, "Failed getting Window instance.");
+    APP.show();
     int x = 100;
     int y = 100;
     SDL_Point p1 = {500,400};
@@ -41,18 +41,19 @@ void AppicationTestCase::assertion_test(Application app) {
     for (int i = 0 ; i < 200 ; i++) {
         x++;
         y++;
-        app.get_window("TestWindow")->set_x_position(x);
-        app.get_window("TestWindow")->set_y_position(y);
-        app.get_window("TestWindow")->set_width(x);
-        app.get_window("TestWindow")->set_height(y);
+        APP.get_window("TestWindow")->set_x_position(x);
+        APP.get_window("TestWindow")->set_y_position(y);
+        APP.get_window("TestWindow")->set_width(x);
+        APP.get_window("TestWindow")->set_height(y);
         p2.x--;
         p2.y--;
-        app.get_window("TestWindow2")->set_position(&p1);
-        app.get_window("TestWindow2")->set_size(&p1, &p2);
-        app.pause(10);
+        APP.get_window("TestWindow2")->set_position(&p1);
+        APP.get_window("TestWindow2")->set_size(&p1, &p2);
+        APP.pause(10);
     }
-    app.hide();
-    app.pause(500);
-    app.show();
-    app.pause(500);
+    APP.hide();
+    APP.pause(500);
+    APP.show();
+    APP.pause(500);
+    std::cout << std::endl;
 }

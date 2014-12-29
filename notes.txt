@@ -3,6 +3,10 @@ When creating derived classes remember always to implement virtual destructor an
 #2
 After adding new files or editing file localization always remember to add file path to CMakeLists.txt!!!!!!!!!!!!!!!!
 
+#3
+When loading a file You get "couldn't open .." and the path is correct and file is good it means that build directory is
+other than loaded file. Make sure you have set up working directory so your program can use realative paths!
+
 #FAQ#
 1."Undefined reference to": it means that compiler cannot find definition of called reference.
   Reference to function. So linker found declaration of the function but no definition.

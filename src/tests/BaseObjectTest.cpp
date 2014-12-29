@@ -43,6 +43,7 @@ void BaseObjectTestCase::BaseObject_assertion_test(BaseObject* test_obj, std::st
     ASSERT(test_obj->get_height() == height, "height");
     ASSERT(test_obj->get_ID() == ID, "ID");
     ASSERT(test_obj->is_active() == state, "state");
+    std::cout << std::endl;
     std::cout << "Assertion test completed. \nAll test completed with no errors." << std::endl;
     test_index++;
 }

@@ -50,4 +50,5 @@ void WindowTestCase::assertion_test(Window *win) {
     win->set_color(new_color);
     ASSERT(compare_SDL_Color(win->get_color(), new_color), "Checking set and get color");
 //    ASSERT(true, "");
+    std::cout << std::endl;
 }

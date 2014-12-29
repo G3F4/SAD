@@ -1,3 +1,7 @@
+#ifndef COMPARATOR_HPP
+#define CAMPARATOR_HPP
+
+
 #include <SDL2/SDL.h>
 
 static bool compare_SDL_Color(SDL_Color* p1, SDL_Color* p2) {
@@ -13,3 +17,5 @@ static bool compare_SDL_Color(SDL_Color p1, SDL_Color p2) {
             p1.b == p2.b &&
             p1.a == p2.g;
 }
+
+#endif

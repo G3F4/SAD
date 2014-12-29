@@ -32,7 +32,12 @@ std::string Window::get_title() {
 }
 
 SDL_Renderer *Window::get_renderer() {
-    return m_renderer;
+    if (m_renderer != NULL) {
+        return m_renderer;
+    } else {
+        std::cout << "Renderer undefined. Returing NULL" << std::endl;
+        return NULL;
+    }
 }
 
 SDL_Window *Window::get_window() {

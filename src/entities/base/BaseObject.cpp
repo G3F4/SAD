@@ -26,7 +26,7 @@ SDL_Point* BaseObject::get_position() {
 }
 
 void BaseObject::set_position(SDL_Point* p1) {
-    if (p1->x > 0 && p1->y >0) {
+    if (p1->x >= 0 && p1->y >= 0) {
         m_box.x = p1->x;
         m_box.y = p1->y;
     } else {
@@ -35,7 +35,7 @@ void BaseObject::set_position(SDL_Point* p1) {
 }
 
 void BaseObject::set_position(int x, int y) {
-    if (x > 0 && y >0) {
+    if (x >= 0 && y >= 0) {
         m_box.x = x;
         m_box.y = y;
     } else {
@@ -44,7 +44,7 @@ void BaseObject::set_position(int x, int y) {
 }
 
 void BaseObject::set_x_position(int x) {
-    if (x >0) {
+    if (x >= 0) {
         m_box.x = x;
     } else {
         std::cout << "x have to be positive number" << std::endl;
@@ -53,7 +53,7 @@ void BaseObject::set_x_position(int x) {
 }
 
 void BaseObject::set_y_position(int y) {
-    if (y >0) {
+    if (y >= 0) {
         m_box.y = y;
     } else {
         std::cout << "y have to be positive number" << std::endl;

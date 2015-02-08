@@ -47,6 +47,8 @@ private:
     double m_angle = 0; // #TODO add angle, flip and pivot point functionality
     SDL_Point m_pivot_point ;
     SDL_RendererFlip m_flip;
+    Uint32* m_format;
+    int* m_access;
 };
 
 #endif /* TEXTURE_H_DEFINED */

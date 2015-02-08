@@ -12,6 +12,9 @@ set(SOURCE_FILES
 
     src/singletons/Application.cpp
     src/singletons/TextureManager.cpp
+    src/singletons/Events.cpp
+    src/entities/ele.cpp
+    src/entities/elephant.cpp
 
     src/tests/BaseObjectTest.cpp
     src/tests/WindowTest.cpp

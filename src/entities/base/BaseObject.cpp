@@ -53,7 +53,7 @@ void BaseObject::set_x_position(int x) {
 }
 
 void BaseObject::set_y_position(int y) {
-    if (y >= 0) {
+    if (y >0) {
         m_box.y = y;
     } else {
         std::cout << "y have to be positive number" << std::endl;
